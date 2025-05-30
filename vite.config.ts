@@ -1,17 +1,17 @@
-// import { defineConfig as testConfig } from "vitest/config";
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
 
-const config = defineConfig({
+export default defineConfig({
   plugins: [react()],
+  build: {
+    rollupOptions: {
+        output:{
+            manualChunks(id) {
+                if (id.includes('node_modules')) {
+                    return id.toString().split('node_modules/')[1].split('/')[0].toString();
+                }
+            }
+        }
+    }
+}
 });
-
-// const tstConfig = testConfig({
-//   test: {
-//     environment: "jsdom",
-//     globals: true,
-//     setupFiles: ["./src/__tests__/setup.ts"],
-//   },
-// });
-
-export default { ...config };
