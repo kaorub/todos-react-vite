@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Input, message, type InputProps } from "antd";
-import { ArrowDownOutlined } from "@ant-design/icons";
+// import { ArrowDownOutlined } from "@ant-design/icons";
 import { INPUT_DEFAULT_MSG, INPUT_MAX_LENGTH, NOTIFICATION_TASK_ADDED, WARNING_EMPTY_TXT } from "../constants";
 import { Task } from "../types/Task";
 
@@ -35,7 +35,6 @@ export function TaskInput({ addTask }: TaskInputProps) {
             value={value}
             onChange={onChange}
             placeholder={INPUT_DEFAULT_MSG}
-            prefix={<ArrowDownOutlined/>}
             maxLength={INPUT_MAX_LENGTH}
             onPressEnter={onPressEnter}
         />
